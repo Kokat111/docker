@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+
+<body>
+	<div class="">
+		<form>
+			{{ form.hidden_tag() }}
+			<fieldset>
+				<legend></legend>
+				<div class="form-group">
+					{{ form.miasto.label(class="form-control-label") }}
+					{{ form.miasto(class="form-control") }}
+				</div>
+			</fieldset>aa
+			<div class="form-group">
+				{{ form.submit(class="btn") }}
+				{{ form.csrf_token }}
+			</div>
+		</form>
+	</div>
+</body>
+</html>
