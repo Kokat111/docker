@@ -3,8 +3,6 @@ from flask import render_template,redirect,url_for
 from app import app
 import requests
 
-city=''
-
 def get_key():
 	url = 'http://dataservice.accuweather.com/locations/v1/cities/search?apikey=wPAADHiPqogW497qyheQpEGimLAhTHsj&q={}'
 	
@@ -14,14 +12,15 @@ def get_key():
 	}
 	return data
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def home():
 	form = MiastoForm()
-	city = form.miasto.data
-	print(city)
-	if form.validate_on_submit():
-		r = get_weather_data([0])
-		print(r)
+
+	responce = requests.get('http://dataservice.accuweather.com/locations/v1/cities/search?apikey=wPAADHiPqogW497qyheQpEGimLAhTHsj&q=krakow')
+	if(responce.status_code != requests.codes.ok):
+		print('RIP')
+	else:
+		print(responce.json())
 
 	return render_template('search.html',title='Search',form=form)
 
