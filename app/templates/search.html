@@ -11,7 +11,7 @@
 
 <body>
 	<div class="">
-		<form>
+		<form method="POST" action="">
 			{{ form.hidden_tag() }}
 			<fieldset>
 				<legend></legend>
@@ -19,7 +19,7 @@
 					{{ form.miasto.label(class="form-control-label") }}
 					{{ form.miasto(class="form-control") }}
 				</div>
-			</fieldset>aa
+			</fieldset>
 			<div class="form-group">
 				{{ form.submit(class="btn") }}
 				{{ form.csrf_token }}
